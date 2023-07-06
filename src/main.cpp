@@ -28,50 +28,22 @@ void setup() {
   // initialize the OLED display
   VextON();
   delay(100);
-
+  
   display.init();
   display.clear();
   display.display();
-  
   display.setContrast(255);
-  
   display.setTextAlignment(TEXT_ALIGN_CENTER);
-  display.clear();
-  display.display();
-  display.screenRotate(ANGLE_0_DEGREE);
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(64, 32-16/2, "PK33_0");
-  display.display();
-  delay(2000);
+  
 
-  display.clear();
-  display.display();
-  display.screenRotate(ANGLE_90_DEGREE);
-  display.setFont(ArialMT_Plain_10);
-  display.drawString(32, 64-10/2, "ROTATE_90");
-  display.display();
-  delay(2000);
-
-  display.clear();
-  display.display();
-  display.screenRotate(ANGLE_180_DEGREE);
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(64, 32-16/2, "ROTATE_180");
-  display.display();
-  delay(2000);
-
-  display.clear();
-  display.display();
-  display.screenRotate(ANGLE_270_DEGREE);
-  display.setFont(ArialMT_Plain_10);
-  display.drawString(32, 64-10/2, "ROTATE_27a0");
-  display.display();
-  delay(2000);
 }
 
 void loop() {
-  output.print("Hello, world!", CONSOLE);
-  output.print("Hello, world!", OLED);
-  output.print("Hello, world!", LOG);
+  output.print("Test", CONSOLE);
+  output.print("Test", OLED);
+  output.print("Test", LOG);
   delay(1000);
- }
+  display.clear();
+  display.display();
+  delay(1000);
+ }  

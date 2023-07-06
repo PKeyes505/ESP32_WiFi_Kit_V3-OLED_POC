@@ -21,7 +21,7 @@ class Output {
           break;
         case OLED:
           _display->clear();
-          _display->drawString(0, 0, message);
+          _display->drawString(64, 32-16/2, message);
           _display->display();
           break;
         case LOG:
