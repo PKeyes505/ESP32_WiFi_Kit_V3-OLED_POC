@@ -1,9 +1,12 @@
 //https://github.com/HelTecAutomation/Heltec_ESP32/blob/master/examples/OLED/OLED_rotate/OLED_rotate.ino
 #include "heltec.h"
 #include "Arduino.h"
+#include "output.h"
+
 
 //rotate only for GEOMETRY_128_64
 SSD1306Wire display(0x3c, SDA_OLED, SCL_OLED, RST_OLED);
+Output output(&display);
 
 void VextON(void)
 {
@@ -19,6 +22,10 @@ void VextOFF(void) //Vext default OFF
 
 void setup() {
 
+  // set serial baud rate to match platformio.ini monitor serial speed
+  Serial.begin(115200);
+
+  // initialize the OLED display
   VextON();
   delay(100);
 
@@ -57,9 +64,14 @@ void setup() {
   display.display();
   display.screenRotate(ANGLE_270_DEGREE);
   display.setFont(ArialMT_Plain_10);
-  display.drawString(32, 64-10/2, "ROTATE_270");
+  display.drawString(32, 64-10/2, "ROTATE_27a0");
   display.display();
   delay(2000);
 }
 
-void loop() { }
+void loop() {
+  output.print("Hello, world!", CONSOLE);
+  output.print("Hello, world!", OLED);
+  output.print("Hello, world!", LOG);
+  delay(1000);
+ }
